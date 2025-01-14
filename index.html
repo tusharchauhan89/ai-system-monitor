@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body styling */
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        /* Heading styling */
+        
+        h1 {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        /* Container for the graph */
+        
+        .graph-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+        
+        .graph-container:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+        /* Smooth transition for the entire page */
+        
+        body {
+            transition: background-color 0.5s ease;
+        }
+        /* Adding responsiveness */
+        
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .graph-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>System Resource Usage</h1>
+    <div class="graph-container">
+        {{ graph_html | safe }}
+    </div>
+</body>
+
+</html>
